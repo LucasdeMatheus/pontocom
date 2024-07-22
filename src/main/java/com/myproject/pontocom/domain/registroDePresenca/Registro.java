@@ -4,7 +4,6 @@ import com.myproject.pontocom.domain.registroDePresenca.ausencia.Presente;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Entity
 public class Registro {
@@ -85,5 +84,28 @@ public class Registro {
 
     public void marcarSaida(String horaDeSaida) {
         setHorarioDeSaida(horaDeSaida);
+    }
+
+    @Override
+    public String toString() {
+        return "Registro{" +
+                "id=" + id +
+                ", idFuncionario=" + idFuncionario +
+                ", data=" + data +
+                ", horarioDeEntrada='" + horarioDeEntrada + '\'' +
+                ", horarioDeIntervalo='" + horarioDeIntervalo + '\'' +
+                ", horarioDeSaida='" + horarioDeSaida + '\'' +
+                ", presente=" + presente +
+                '}';
+    }
+
+
+
+    public void setPresente(Presente presente) {
+        this.presente = presente;
+    }
+
+    public Presente getPresente() {
+        return presente;
     }
 }

@@ -19,6 +19,12 @@ public class FuncionarioController {
     @Autowired
     private FuncionarioRepository repository;
 
+    @GetMapping("/{email}")
+    public ResponseEntity dadosFuncionario(@PathVariable String email){
+        var dados = repository.findByContatoEmail(email);
+        return ResponseEntity.ok(dados);
+    }
+
     @GetMapping
     public ResponseEntity<Page<DadosListagemFuncionarios>> listar(Pageable paginacao){
         var page = repository.findAll(paginacao).map(DadosListagemFuncionarios::new);

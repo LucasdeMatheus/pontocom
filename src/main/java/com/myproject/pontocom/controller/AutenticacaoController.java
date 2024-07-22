@@ -17,7 +17,6 @@ import com.myproject.pontocom.domain.usuario.DadosAutenticacao;
 @RestController
 @RequestMapping("/login")
 public class AutenticacaoController {
-
     @Autowired
     private AuthenticationManager manager;
 
@@ -32,6 +31,7 @@ public class AutenticacaoController {
         var tokenJWT = tokenService.gerarToken((Usuario) authentication.getPrincipal());
 
         return ResponseEntity.ok(new DadosTokenJWT(tokenJWT));
+
     }
 
 }

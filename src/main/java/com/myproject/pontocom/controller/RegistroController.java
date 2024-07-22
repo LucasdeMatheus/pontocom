@@ -24,6 +24,7 @@ public class RegistroController {
 
 
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+    @GetMapping("/{id}/entrada")
 
     @PostMapping("/{id}/entrada")
     public ResponseEntity<Boolean> baterPonto(@PathVariable Long id){

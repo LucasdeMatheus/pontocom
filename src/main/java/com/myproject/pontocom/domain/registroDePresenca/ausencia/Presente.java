@@ -1,10 +1,14 @@
 package com.myproject.pontocom.domain.registroDePresenca.ausencia;
 
 import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 
 public class Presente {
     private Boolean funcionarioPresente;
+
+    @Enumerated(EnumType.STRING)
+    private MotivoAusencia motivoAusencia;
 
     public Boolean getFuncionarioPresente() {
         return funcionarioPresente;
@@ -22,5 +26,11 @@ public class Presente {
         this.motivoAusencia = motivoAusencia;
     }
 
-    private MotivoAusencia motivoAusencia;
+    @Override
+    public String toString() {
+        return "Presente{" +
+                "funcionarioPresente=" + funcionarioPresente +
+                ", motivoAusencia=" + motivoAusencia +
+                '}';
+    }
 }
