@@ -20,6 +20,10 @@ public record DadosCadastroFuncionario (
         LocalDate dataDeNascimento,
         Endereco endereco,
         Contato contato,
-        Profissao dadosProficionais
+        Profissao dadosProficionais,
+        @NotBlank
+        String login,
+        @NotBlank
+        String senha
 ) {
 }

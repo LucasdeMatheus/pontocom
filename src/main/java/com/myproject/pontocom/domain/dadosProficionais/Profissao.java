@@ -10,6 +10,7 @@ public class Profissao {
     @Enumerated(EnumType.STRING)
     private Cargo cargo;
     private LocalDate dataDeAdmissao;
+    private Double salario;
 
     public Cargo getCargo() {
         return cargo;
@@ -26,5 +27,13 @@ public class Profissao {
 
     public void setDataDeAdmissao(LocalDate dataDeAdmissao) {
         this.dataDeAdmissao = dataDeAdmissao;
+    }
+
+    public double getSalario() {
+        return salario;
+    }
+
+    public void setSalario(Double salario) {
+        this.salario = salario;
     }
 }

@@ -10,6 +10,8 @@ public record DadosProfissao(
         @NotNull
         String cargo,
         @NotNull
-        LocalDate dataDeAdmissao
+        LocalDate dataDeAdmissao,
+        @NotNull
+        Double Salario
 ) {
 }
