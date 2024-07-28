@@ -5,7 +5,7 @@
 * [Descrição do Projeto](#descrição-do-projeto)
 * [Status do Projeto](#status-do-projeto)
 * [Funcionalidades](#funcionalidades)
-* [Instalação](#Instalação)
+* [Instalação do aplicativo](#Instalação-do-aplicativo)
 * [Tecnologias utilizadas](#tecnologias-utilizadas)
 
 # Descrição do Projeto
@@ -21,7 +21,9 @@
 ![image](https://github.com/user-attachments/assets/5ea23158-3d88-4ea6-a22b-2eba451c45de)
 
 ### TesteAutenticação POST: (/login)
->>esta request fará a autenticação de um usuario com Login e Senha e irá gerar um token, liberando acesso de todo o sistema.
+   >>esta request fará a autenticação de um usuario com Login e Senha e irá gerar um token, liberando acesso de todo o sistema.
+   ![image](https://github.com/user-attachments/assets/3e561db3-4ac5-4f87-90ac-f107c745c75a)
+
 
 
 
@@ -34,7 +36,7 @@
 >>esta request atualiza dados pessoais do funcionario.
 
 ### Request Atualizar Senha PUT: (/funcionarios/atualizar-senha/{email})
->>esta request recebe um json com uma senha e atualiza no banco de dados.
+>>esta request recebe um json com uma senha e atualiza no banco de dados.<br>
 > ![image](https://github.com/user-attachments/assets/fde03dbf-8ab2-4287-a198-b38778976181)
 
 
@@ -78,7 +80,9 @@ antes da requisição:<br>
 >>-> as folhas de pontos de cada funcionarios são separadas por cada planilha renomeada por "Folha de Ponto do (Nome do Funcionario)"
 >>-> a request de validar atestado tambem altera a presença do funcionario para ausente, podem ser utilizada para situações onde o
 
-# Instalação
+
+# Instalação do aplicativo
+
 
 ## Requisitos
 
@@ -95,58 +99,48 @@ antes da requisição:<br>
    ```bash
    git clone https://github.com/usuario/pontocom.git
    cd pontocom
->>2. Configuração do Banco de Dados<br><br>
->>Crie um banco de dados MySQL para o PontoCom.<br>
-Importe o esquema do banco de dados incluído no diretório db.<br><br>
-## sql<br>
-Copie e execute essa query:<br>
->>CREATE DATABASE pontocom;<br>
-USE pontocom;<br>
-SOURCE caminho/para/o/arquivo/schema.sql;<br><br>
+2. **Configuração do Banco de Dados**
 
-## Configuração do Aplicativo
-
-Copie o arquivo de configuração application.properties do diretório src/main/resources para o diretório config.
-
-Configure as propriedades do banco de dados no arquivo application.properties:
-
-## properties
-Copie e cole com seu login e senha no arquivo.
->>spring.datasource.url=jdbc:mysql://localhost:3306/pontocom<br>
-spring.datasource.username=usuario<br>
-spring.datasource.password=senha
-
+   Crie um banco de dados MySQL para o PontoCom:
+   Importe o esquema do banco de dados incluído no diretório db:
+   ```bash
+   CREATE DATABASE pontocom;
+   USE pontocom;
+   SOURCE caminho/para/o/arquivo/schema.sql;
+3. **Configuração do Aplicativo**
+   Copie o arquivo de configuração application.properties do diretório src/main/resources para o diretório config.
+   Copie e cole com seu login e senha do banco de dados mysql no arquivo.
+   ```arquivo
+   spring.datasource.url=jdbc:mysql://localhost:3306/pontocom
+   spring.datasource.username=usuario
+   spring.datasource.password=senha
 é uma boa prática usar variaveis de ambiente, principalmente se for subir o projeto em um repositorio publico.
 
-## Compilação e Execução
+4. **Compilação e Execução**
 
-Compile o projeto usando Maven:
+   Compile o projeto usando Maven:
+   ```Terminal
+   ./mvnw clean install
+5. **Execute o aplicativo:**
 
-bash
-Copie e execute em seu terminal:
->> ./mvnw clean install<br>
+   Copie e execute em seu terminal:
+   ```Terminal
+   java -jar target/pontocom-1.0.jar
+6. **Criando Acesso**
 
-## Execute o aplicativo:
-
-bash
-Copie e execute em seu terminal:
->>java -jar target/pontocom-1.0.jar
-
-## Criando Acesso
-
-Antes de Acessar o aplicativo, necessita criar um Login para um Administrador ou para o proprio RH.<br>
-copie e execute esse código em seu Banco de Dados MySQL:
->> use pontocom;<br>
-INSERT INTO usuario (login, senha)<br>
-VALUES ('usuario@example.com', '$2a$10$lIKWA3QIJyaq8z6/Rhv2XOPLtADJgdQASItP6RLX.n6fdzabBjKc.');
-
+   copie e execute esse código em seu Banco de Dados MySQL:
+   ```MySQL
+   use pontocom;
+   INSERT INTO usuario (login, senha)
+   VALUES ('usuario@example.com', '$2a$10$lIKWA3QIJyaq8z6/Rhv2XOPLtADJgdQASItP6RLX.n6fdzabBjKc.');
 esta query fara um usuario sem dados de funcionarios, com login "usuario@example.com" e "123456" como senha.<br> Assim, poderá fazer requisições para cadastrar funcionarios.
 <br>Recomendo apagar esse usuario após cadastrar um funcionario.
-## Acesso ao Aplicativo
 
-Após a execução, acesse o aplicativo através da url: http://localhost:8080.<br>
+7. **Acesso ao Aplicativo**
 
-
+   Após a execução, acesse o aplicativo através da url:
+   ```url
+   http://localhost:8080.
 
 # Tecnologias utilizadas
 
