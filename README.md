@@ -21,7 +21,7 @@
 ![image](https://github.com/user-attachments/assets/5ea23158-3d88-4ea6-a22b-2eba451c45de)
 
 ### TesteAutenticação POST: (/login)
-   >>esta request fará a autenticação de um usuario com Login e Senha e irá gerar um token, liberando acesso de todo o sistema.
+   >>esta request fará a autenticação de um usuario com Login e Senha e irá gerar um token, liberando acesso de todo o sistema.<br>
    ![image](https://github.com/user-attachments/assets/3e561db3-4ac5-4f87-90ac-f107c745c75a)
 
 
